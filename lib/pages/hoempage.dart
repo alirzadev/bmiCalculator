@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:bmicalculator/custom_widgets/custom_button.dart';
 import 'package:bmicalculator/custom_widgets/custom_card.dart';
 import 'package:bmicalculator/custom_widgets/custom_icon_button.dart';
+import 'package:bmicalculator/pages/result_page.dart';
+import 'package:bmicalculator/utilities/bmi_calculator.dart';
 import 'package:bmicalculator/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -19,8 +21,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Gender selectedGender;
-  double height = 120;
-  int weight = 70;
+  double height = 170;
+  int weight = 60;
   int age = 25;
 
   @override
@@ -42,7 +44,6 @@ class _HomePageState extends State<HomePage> {
                       width: 45,
                       height: 45,
                       icon: FontAwesome.bell_o,
-                      iconColor: Theme.of(context).accentColor,
                     ),
                     Text(
                       'BMI Calculator',
@@ -57,7 +58,6 @@ class _HomePageState extends State<HomePage> {
                       width: 45,
                       height: 45,
                       icon: FontAwesome.user_o,
-                      iconColor: Theme.of(context).accentColor,
                     ),
                   ],
                 ),
@@ -154,18 +154,47 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Transform.rotate(
                               angle: 3 * pi / 2,
-                              child: Slider(
-                                min: 120,
-                                max: 220,
-                                divisions: 10,
-                                value: height,
-                                onChanged: (value) {
-                                  setState(() {
-                                    height = value;
-                                  });
-                                },
+                              child: SliderTheme(
+                                data: SliderTheme.of(context).copyWith(
+                                  thumbColor: Colors.white70,
+                                  activeTrackColor:
+                                      Theme.of(context).accentColor,
+                                  inactiveTrackColor: Colors.black12,
+                                ),
+                                child: Slider(
+                                  min: 110,
+                                  max: 230,
+                                  value: height,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      height = value;
+                                    });
+                                  },
+                                ),
                               ),
                             ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                Text(
+                                  height.toInt().toString(),
+                                  style: TextStyle(
+                                    color: itemColor,
+                                    fontSize: 36.0,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 5.0, bottom: 8.0),
+                                  child: Text(
+                                    'cm',
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 12.0),
+                                  ),
+                                ),
+                              ],
+                            )
                           ],
                         ),
                       ),
@@ -219,6 +248,22 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 40.0),
               CustomButton(
+                width: double.infinity,
+                onPressed: () {
+                  BMICalculator calc =
+                      BMICalculator(height: height.toInt(), weight: weight);
+                  setState(() {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ResultPage(
+                          bmiResult: calc.getBMI(),
+                          textResult: calc.getResult(),
+                          bmiPercentage: calc.getBMIPercentage(),
+                        ),
+                      ),
+                    );
+                  });
+                },
                 text: 'Lets Begin',
                 textColor: Colors.white,
                 gradient: LinearGradient(

@@ -1,9 +1,20 @@
+import 'package:bmicalculator/custom_widgets/custom_button.dart';
 import 'package:bmicalculator/custom_widgets/custom_icon_button.dart';
 import 'package:bmicalculator/utilities/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
+final GlobalKey<AnimatedCircularChartState> _chartKey =
+    new GlobalKey<AnimatedCircularChartState>();
+
 class ResultPage extends StatelessWidget {
+  final String bmiResult;
+  final String textResult;
+  final double bmiPercentage;
+
+  ResultPage({this.bmiResult, this.textResult, this.bmiPercentage});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,6 +23,7 @@ class ResultPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           color: backgroundColor,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(top: 20.0),
@@ -19,11 +31,12 @@ class ResultPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     CustomIconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       width: 45,
                       height: 45,
-                      icon: FontAwesome.bell_o,
-                      iconColor: Theme.of(context).accentColor,
+                      icon: FontAwesome.angle_left,
                     ),
                     Text(
                       'BMI Calculator',
@@ -38,12 +51,83 @@ class ResultPage extends StatelessWidget {
                       width: 45,
                       height: 45,
                       icon: FontAwesome.user_o,
-                      iconColor: Theme.of(context).accentColor,
                     ),
                   ],
                 ),
               ),
               SizedBox(height: 30.0),
+              Container(
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: foregroundColor,
+                  shape: BoxShape.circle,
+                  boxShadow: neumorphicShadow,
+                ),
+                child: AnimatedCircularChart(
+                  key: _chartKey,
+                  size: const Size(190, 190),
+                  holeLabel: bmiResult,
+                  labelStyle: TextStyle(
+                    color: itemColor,
+                    fontSize: 40.0,
+                  ),
+                  initialChartData: <CircularStackEntry>[
+                    CircularStackEntry(
+                      <CircularSegmentEntry>[
+                        CircularSegmentEntry(
+                          bmiPercentage,
+                          Theme.of(context).accentColor,
+                          rankKey: 'completed',
+                        ),
+                        CircularSegmentEntry(
+                          bmiPercentage <= 100 ? 100 - bmiPercentage : 0,
+                          Colors.black12,
+                          rankKey: 'remaining',
+                        ),
+                      ],
+                      rankKey: 'progress',
+                    ),
+                  ],
+                  chartType: CircularChartType.Radial,
+                  edgeStyle: SegmentEdgeStyle.round,
+                  percentageValues: true,
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'You have ',
+                    style: TextStyle(
+                      color: itemColor,
+                    ),
+                  ),
+                  Text(
+                    textResult,
+                    style: TextStyle(
+                      color: Theme.of(context).accentColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    ' body weight!',
+                    style: TextStyle(
+                      color: itemColor,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30.0),
+              CustomButton(
+                onPressed: () {},
+                width: 120,
+                text: 'Details',
+                textColor: itemColor,
+                buttonColor: foregroundColor,
+              ),
+              SizedBox(height: 20.0),
             ],
           ),
         ),
