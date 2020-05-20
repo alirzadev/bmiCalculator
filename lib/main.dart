@@ -1,4 +1,4 @@
-import 'package:bmicalculator/pages/hoempage.dart';
+import 'package:bmicalculator/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BMI Calculator',
       theme: ThemeData(
+        fontFamily: 'Montserrat',
         accentColor: Color(0xFF56D0DB),
         primarySwatch: Colors.blue,
       ),

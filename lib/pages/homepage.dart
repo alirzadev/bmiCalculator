@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                     Text(
                       'BMI Calculator',
                       style: TextStyle(
-                        color: itemColor,
+                        color: darkTextColor,
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -180,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   height.toInt().toString(),
                                   style: TextStyle(
-                                    color: itemColor,
+                                    color: darkTextColor,
                                     fontSize: 36.0,
                                   ),
                                 ),
@@ -253,15 +253,17 @@ class _HomePageState extends State<HomePage> {
                   BMICalculator calc =
                       BMICalculator(height: height.toInt(), weight: weight);
                   setState(() {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => ResultPage(
-                          bmiResult: calc.getBMI(),
-                          textResult: calc.getResult(),
-                          bmiPercentage: calc.getBMIPercentage(),
+                    if (selectedGender != null) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ResultPage(
+                            bmiResult: calc.getBMI(),
+                            textResult: calc.getResult(),
+                            bmiPercentage: calc.getBMIPercentage(),
+                          ),
                         ),
-                      ),
-                    );
+                      );
+                    }
                   });
                 },
                 text: 'Lets Begin',

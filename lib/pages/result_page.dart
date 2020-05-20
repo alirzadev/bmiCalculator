@@ -1,5 +1,6 @@
 import 'package:bmicalculator/custom_widgets/custom_button.dart';
 import 'package:bmicalculator/custom_widgets/custom_icon_button.dart';
+import 'package:bmicalculator/pages/info_page.dart';
 import 'package:bmicalculator/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
@@ -39,9 +40,9 @@ class ResultPage extends StatelessWidget {
                       icon: FontAwesome.angle_left,
                     ),
                     Text(
-                      'BMI Calculator',
+                      'BMI Results',
                       style: TextStyle(
-                        color: itemColor,
+                        color: darkTextColor,
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -69,7 +70,7 @@ class ResultPage extends StatelessWidget {
                   size: const Size(190, 190),
                   holeLabel: bmiResult,
                   labelStyle: TextStyle(
-                    color: itemColor,
+                    color: darkTextColor,
                     fontSize: 40.0,
                   ),
                   initialChartData: <CircularStackEntry>[
@@ -101,7 +102,7 @@ class ResultPage extends StatelessWidget {
                   Text(
                     'You have ',
                     style: TextStyle(
-                      color: itemColor,
+                      color: darkTextColor,
                     ),
                   ),
                   Text(
@@ -114,17 +115,26 @@ class ResultPage extends StatelessWidget {
                   Text(
                     ' body weight!',
                     style: TextStyle(
-                      color: itemColor,
+                      color: darkTextColor,
                     ),
                   ),
                 ],
               ),
               SizedBox(height: 30.0),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => InfoPage(
+                        bmi: bmiResult,
+                        resultText: textResult,
+                      ),
+                    ),
+                  );
+                },
                 width: 120,
                 text: 'Details',
-                textColor: itemColor,
+                textColor: darkTextColor,
                 buttonColor: foregroundColor,
               ),
               SizedBox(height: 20.0),
