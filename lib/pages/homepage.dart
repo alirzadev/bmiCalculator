@@ -1,9 +1,10 @@
 import 'dart:math';
 
 import 'package:bmicalculator/custom_widgets/custom_button.dart';
-import 'package:bmicalculator/custom_widgets/custom_card.dart';
 import 'package:bmicalculator/custom_widgets/custom_icon_button.dart';
+import 'package:bmicalculator/custom_widgets/input_card.dart';
 import 'package:bmicalculator/pages/result_page.dart';
+import 'package:bmicalculator/pages/tips_page.dart';
 import 'package:bmicalculator/utilities/bmi_calculator.dart';
 import 'package:bmicalculator/utilities/constants.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,13 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     CustomIconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => TipsPage(),
+                          ),
+                        );
+                      },
                       width: 45,
                       height: 45,
                       icon: FontAwesome.bell_o,

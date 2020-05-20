@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Montserrat',
         accentColor: Color(0xFF56D0DB),
-        primarySwatch: Colors.blue,
       ),
       home: HomePage(),
     );
