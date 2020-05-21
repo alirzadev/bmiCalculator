@@ -1,4 +1,5 @@
-<h1 align="center">BMI Calculator
+<h1 align="center">⌚ BMI Calculator
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <br>
 </h1>
 
@@ -18,11 +19,9 @@ A simple Flutter application based on Neumorphic UI design.
 |:----------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------:|
 | ![](https://github.com/alirzadev/BMI-Calculator/blob/master/screenshots/ResultPage.jpg?raw=true) | ![](https://github.com/alirzadev/BMI-Calculator/blob/master/screenshots/InfoPage.jpg?raw=true) |
 
-<center>
 |                                                          BMI Calculator Gif                                            |
 |:----------------------------------------------------------------------------------------------------------------------:|
 | ![](https://github.com/alirzadev/BMI-Calculator/blob/master/screenshots/BmiCalculator.gif?raw=true) |
-</center>
 
-<h2>UI Inspiration</h2>
+<h2>💡 UI Inspiration</h2>
 This UI is inspired from dribble [BMI Calculator App - Neumorphism](https://dribbble.com/shots/11368106-BMI-Calculator-App-Neumorphism)
