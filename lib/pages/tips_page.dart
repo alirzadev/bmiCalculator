@@ -76,7 +76,7 @@ class TipsPage extends StatelessWidget {
       decoration: BoxDecoration(
         color: foregroundColor,
         borderRadius: BorderRadius.all(Radius.circular(20.0)),
-        boxShadow: neumorphicShadow,
+        boxShadow: outerShadow,
       ),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -89,7 +89,7 @@ class TipsPage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: foregroundColor,
                 shape: BoxShape.circle,
-                boxShadow: neumorphicShadow,
+                boxShadow: outerShadow,
               ),
               child: Container(
                 padding: const EdgeInsets.all(15.0),

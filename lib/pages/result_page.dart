@@ -1,7 +1,8 @@
-import 'package:bmicalculator/custom_widgets/custom_button.dart';
 import 'package:bmicalculator/custom_widgets/custom_icon_button.dart';
+import 'package:bmicalculator/custom_widgets/gesture_detecting_button.dart';
 import 'package:bmicalculator/pages/info_page.dart';
 import 'package:bmicalculator/utilities/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -63,7 +64,7 @@ class ResultPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: foregroundColor,
                   shape: BoxShape.circle,
-                  boxShadow: neumorphicShadow,
+                  boxShadow: outerShadow,
                 ),
                 child: AnimatedCircularChart(
                   key: _chartKey,
@@ -121,7 +122,7 @@ class ResultPage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 30.0),
-              CustomButton(
+              GestureDetectingButton(
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -134,8 +135,6 @@ class ResultPage extends StatelessWidget {
                 },
                 width: 120,
                 text: 'Details',
-                textColor: darkTextColor,
-                buttonColor: foregroundColor,
               ),
               SizedBox(height: 20.0),
             ],

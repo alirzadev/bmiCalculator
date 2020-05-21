@@ -27,7 +27,7 @@ class CustomButton extends StatelessWidget {
           color: buttonColor,
           gradient: gradient,
           borderRadius: BorderRadius.all(Radius.circular(20.0)),
-          boxShadow: neumorphicShadow,
+          boxShadow: outerShadow,
         ),
         child: Center(
           child: Text(

@@ -18,7 +18,7 @@ class CustomCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: foregroundColor,
         borderRadius: BorderRadius.all(Radius.circular(20.0)),
-        boxShadow: neumorphicShadow,
+        boxShadow: outerShadow,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -26,7 +26,7 @@ class CustomCard extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-              color: Colors.grey,
+              color: lightTextColor,
             ),
           ),
           Text(

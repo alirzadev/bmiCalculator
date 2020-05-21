@@ -5,7 +5,7 @@ Color darkTextColor = Color(0xFF5B6275);
 Color lightTextColor = Colors.grey;
 Color foregroundColor = Color(0xFFF0EEF3);
 
-var neumorphicShadow = [
+var outerShadow = [
   BoxShadow(
     blurRadius: 3.0,
     offset: Offset(-2, -2),

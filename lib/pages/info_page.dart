@@ -57,7 +57,7 @@ class InfoPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: foregroundColor,
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  boxShadow: neumorphicShadow,
+                  boxShadow: outerShadow,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -94,7 +94,7 @@ class InfoPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: foregroundColor,
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  boxShadow: neumorphicShadow,
+                  boxShadow: outerShadow,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(

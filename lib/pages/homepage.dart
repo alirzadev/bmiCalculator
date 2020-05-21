@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                       text: 'Male',
                       textColor: selectedGender == Gender.male
                           ? Colors.white
-                          : Colors.grey,
+                          : lightTextColor,
                       gradient: selectedGender == Gender.male
                           ? LinearGradient(
                               begin: Alignment.centerRight,
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                       text: 'Female',
                       textColor: selectedGender == Gender.female
                           ? Colors.white
-                          : Colors.grey,
+                          : lightTextColor,
                       gradient: selectedGender == Gender.female
                           ? LinearGradient(
                               begin: Alignment.centerRight,
@@ -148,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                         decoration: BoxDecoration(
                           color: foregroundColor,
                           borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          boxShadow: neumorphicShadow,
+                          boxShadow: outerShadow,
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               'Height',
                               style: TextStyle(
-                                color: Colors.grey,
+                                color: lightTextColor,
                               ),
                             ),
                             Transform.rotate(
@@ -197,7 +197,9 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     'cm',
                                     style: TextStyle(
-                                        color: Colors.grey, fontSize: 12.0),
+                                      color: lightTextColor,
+                                      fontSize: 12.0,
+                                    ),
                                   ),
                                 ),
                               ],

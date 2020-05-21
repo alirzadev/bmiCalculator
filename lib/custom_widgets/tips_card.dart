@@ -16,7 +16,7 @@ class TIpsCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: foregroundColor,
         borderRadius: BorderRadius.all(Radius.circular(20.0)),
-        boxShadow: neumorphicShadow,
+        boxShadow: outerShadow,
       ),
       child: Row(
         children: <Widget>[
