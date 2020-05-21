@@ -1,6 +1,6 @@
 <h1 align="center">⌚ BMI Calculator
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <br>
+<img src="https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square">
 </h1>
 
 A simple Flutter application based on Neumorphic UI design.
